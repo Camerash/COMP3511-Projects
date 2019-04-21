@@ -1,0 +1,85 @@
+1) 
+FCFS:
+Average waiting time: 
+= (0 + 9 + 10 + 12 + 35 + 63 + 87 + 94) / 8
+= 38.75 ticks
+Average response time:
+= Same with average waiting time since no preemptive is happening
+= 38.75 ticks
+Average turn-around time:
+= (9 + 20 + 15 + 35 + 68 + 89 + 94 + 106) / 8
+= 54.5 ticks
+SJF:
+Average waiting time: 
+= (0 + 9 + 10 + 31 + 80 + 49 + 5 + 12) / 8
+= 24.5 ticks
+Average response time:
+= Same with average waiting time since no preemptive is happening
+= 24.5 ticks
+Average turn-around time:
+= (9 + 20 + 15 + 54 + 113 + 75 + 12 + 24) / 8
+= 40.25 ticks
+Non-Preemptive Priority scheduling:
+Average waiting time: 
+= (0 + 9 + 55 + 57 + 80 + 2 + 26 + 33) / 8
+= 32.75 ticks
+Average response time:
+= Same with average waiting time since no preemptive is happening
+= 32.75 ticks
+Average turn-around time:
+= (9 + 20 + 60 + 80 + 113 + 28 + 33 + 45) / 8
+= 48.5 ticks
+Preemptive Priority scheduling:
+Average waiting time: 
+= (0 + 59 + 0 + 57 + 80 + 0 + 24 + 31) / 8
+= 31.375 ticks
+Average response time:
+= (0 + 9 + 0 + 57 + 80 + 0 + 24 + 31) / 8
+= 25.125 ticks
+Average turn-around time:
+= (9 + 70 + 5 + 80 + 113 + 26 + 31 + 43) / 8
+= 47.125 ticks
+
+
+MLQ Test 4.1: 
+Average waiting time: 
+= (0 + 9 + 55 + 57 + 80 + 2 + 26 + 33) / 8
+= 32.75 ticks
+Average response time:
+= Same with average waiting time since no preemptive is happening
+= 32.75 ticks
+Average turn-around time:
+= (9 + 20 + 60 + 80 + 113 + 28 + 33 + 45) / 8
+= 48.5 ticks
+
+MLQ Test 4.2:
+Average waiting time: 
+= (0 + 3 + 14 + 44 + 47 + 57 + 75 + 99) / 8
+= 42.375 ticks
+Average response time:
+= Same with average waiting time since no preemptive is happening
+= 42.375 ticks
+Average turn-around time:
+= (9 + 15 + 47 + 49 + 58 + 80 + 101 + 106) / 8
+= 58.125 ticks
+
+2)	From the data above, we can see that SJF have shorter waiting time, response time, and turn-around time than FCFS. It is true that FCFS may have a longer waiting time and turn-around time than SJF. however that is not necessarily the case.
+
+	The pros of FCFS is that is a rather simple algorithm, and it requires no informations to schedule the jobs other than their arrival time. While as in SJF we need to know the burst time of the job before scheduling them, which may be inaccurate or tricky to implement and takes up time to calculate the burst time. This is one of the weakness of SJF
+
+	SJF may also induces problems of starvation, in which a longer burst-time job may get stuck behind the queue if jobs with short burst-time keep on being scheduled in front of it. The job with longer burst-time may never be get CPU focus, result in starvation. Wince FCFS doesn’t assign jobs with priority, this problem does not exist.
+
+	However, The pros of SJF is that it does provides shorter waiting time than FCFS in many occasions. This is not always the case as sometimes their waiting time is the same in cases where jobs comes in ascending order of burst-time length, but SJF will provides shorter waiting time in most cases.
+
+3)	From the data above, preemptive priority scheduling have shorter waiting time, response time, and turn-around time than non-preemptive one. 
+
+	Preemptive priority scheduling allows jobs with higher priority to have a shorter waiting time than non-preemptive one. This ensures higher priority jobs always gets CPU’s focus, instead of getting stuck behind jobs with lower priority that is already executing in CPU in non-preemptive priority scheduling.
+
+	However, preemptive priority scheduling requires more context switching between jobs and threads, which takes up more system resources and time, while non-preemptive priority scheduling will not have this problem.
+
+	In preemptive priority scheduling, longer waiting time are more focused in lower-priority tasks, while higher-priority tasks often need not to wait. This gives a spike in waiting time, but still averages out when calculating average values. While in non-preemptive priority scheduling this phenomenon is less weighted.
+
+4)	In project2_test4_1, the MLQ is basically a long queue with non-preemptive priority scheduling as the scheduling policy. Since the MLQ is non-preemptive, and the job queues are distributed in a loose way among multiple layers.
+
+	However in project2_test4_2, since most of the task with higher priority arrives faster than the ones with lower priority, it makes them waits longer and thus the average waiting time and turn-around time is higher.
+

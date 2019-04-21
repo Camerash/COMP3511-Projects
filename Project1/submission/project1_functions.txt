@@ -1,0 +1,5 @@
+1. ReadyToRun() puts thread into a list, with its default strategy being simplily appending the threads into a list. While if the scheduler has some special SchedPolicy, i.e: Non-Premptive Priority scheduling, Premptive Priority scheduling and Multilevel queue scheduling, the scheduler will insert the thread into the thread list, and then sort the the list according to the priority of the thread.
+
+2. FindNextToRun() pops the first thread in the list and return it to the calling function.
+
+3. ShouldISwitch() compare the old (running) thread with the new thread and determine whether to tell the scheduler to switch the running thread. Using the SchedPolicy it determines different evaluating cases, and comare the threads' priority when the policy is some special SchedPolicy, i.e: Non-Premptive Priority scheduling, Premptive Priority scheduling and Multilevel queue scheduling.

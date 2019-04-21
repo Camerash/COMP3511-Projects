@@ -1,0 +1,9 @@
+1. To perferm a long thread operation.
+
+2. It relinquish the CPU if any other thread is ready to run. If so, it puts the thread on the end of the ready list, so that it will eventually be re-scheduled. It's similar to the thread->sleep() function.
+
+3. Fork() is responsible for allocating the memory needed for prior_thread(int arg)
+
+4. Because we suspended Thread2, the global variable gets added by 3 in prior_thread(int arg) first, which tunrns 4. And later when we resume Thread2, the global variable gets multiplied by 5 in latter_thread(int arg), which gets to 20.
+
+5. We suspended Thread1 before it modifies the value of the global variable, therefore the value is (1*5)+3 = 8 in output3. We then suspended Thread2 before it modifies the value of the global variable, therefore the value is (1+3)*5 = 20 in output 4. In output5 we called Yield in Thread1 just before it modifies the global variable, making Thread 2 modifying the global variable first. Therefore the value is (1*5)+3 = 8.
